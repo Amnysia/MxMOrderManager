@@ -126,10 +126,10 @@ namespace cAlgo
 
         private void DrawLines()
         {
-            ChartObjects.DrawHorizontalLine("EntryLine", this.EntryPrice, Colors.RoyalBlue, 2, LineStyle.Lines);
-            ChartObjects.DrawHorizontalLine("StopLine", this.StopPrice, Colors.Red, 2, LineStyle.Lines);
-            ChartObjects.DrawHorizontalLine("TargetOneLine", this.TargetPriceOne, Colors.Green, 2, LineStyle.Lines);
-            ChartObjects.DrawHorizontalLine("TargetTwoLine", this.TargetPriceTwo, Colors.Green, 2, LineStyle.Lines);
+            ChartObjects.DrawHorizontalLine("EntryLine", this.EntryPrice, Colors.RoyalBlue, 2, LineStyle.LinesDots);
+            ChartObjects.DrawHorizontalLine("StopLine", this.StopPrice, Colors.Red, 2, LineStyle.LinesDots);
+            ChartObjects.DrawHorizontalLine("TargetOneLine", this.TargetPriceOne, Colors.LimeGreen, 2, LineStyle.LinesDots);
+            ChartObjects.DrawHorizontalLine("TargetTwoLine", this.TargetPriceTwo, Colors.LimeGreen, 2, LineStyle.LinesDots);
         }
 
         private void PositionsOnClosed(PositionClosedEventArgs args)
@@ -142,6 +142,7 @@ namespace cAlgo
                 if(!Result.IsSuccessful)
                 {
                     Notifications.SendEmail("maxlecomte@gmail.com", "maxlecomte@gmail.com", "Unable to move stop to break even", "Stop is not moved to break even");
+                    Print("Email sent to maxlecomte@gmail.com");
                 }
             }
         }
